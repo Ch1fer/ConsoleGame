@@ -51,6 +51,7 @@ namespace MyGame
             Point playerPos = player.GetPosition();
             Point lastPlayerPos = player.GetLastPosition();
 
+            
             Point newDir = this.GetDirection(currentPressedKey);
             Point nextPosition = new(playerPos.x + newDir.x, playerPos.y + newDir.y);
             char nextCell = world.GetCell(nextPosition);
@@ -95,7 +96,8 @@ namespace MyGame
 
         public void UpdateKey(ConsoleKeyInfo pressedKey)
         {
-            if (pressedKey != this.currentPressedKey)
+            if (pressedKey != this.currentPressedKey && (pressedKey.Key == ConsoleKey.A || pressedKey.Key == ConsoleKey.D
+                || pressedKey.Key == ConsoleKey.W || pressedKey.Key == ConsoleKey.S))
             {
                 this.lastPressedKey = this.currentPressedKey;
                 this.currentPressedKey = pressedKey;    
